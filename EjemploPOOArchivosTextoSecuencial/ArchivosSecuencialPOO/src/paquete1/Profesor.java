@@ -29,4 +29,12 @@ public class Profesor{
     public String obtenerTipo(){
         return tipo;
     }
+
+    @Override
+    public String toString() {
+        
+        return String.format ("%s - %s", obtenerNombre(), obtenerTipo());
+    }
+    
+    
 }

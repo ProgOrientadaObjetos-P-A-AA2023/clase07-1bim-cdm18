@@ -34,14 +34,16 @@ public class ManejoArrayList3 {
         calificaciones.add(c1);
         calificaciones.add(c2);
         calificaciones.add(c3);
-        
+        double contador = 0;
         for (int i = 0; i < calificaciones.size(); i++) {
+            contador = contador + calificaciones.get(i).obtenerNota();
             System.out.printf("%s - %s - %.2f\n", 
                     calificaciones.get(i).obtenerProfesor().obtenerNombre(), 
                     calificaciones.get(i).obtenerNombreMateria(),
                     calificaciones.get(i).obtenerNota());
         }
-        
+        System.out.printf("\nEl promedio de calificaciones"
+                    + " es: %.1f\n", contador/calificaciones.size());
         
     }
 }

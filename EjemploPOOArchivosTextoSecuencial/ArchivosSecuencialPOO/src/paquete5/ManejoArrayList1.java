@@ -23,10 +23,11 @@ public class ManejoArrayList1 {
         profesores[1] = prof2;
         
         for (int i = 0; i < profesores.length; i++) {
+            Profesor p1 = profesores [i]; // otra idea de como iterar en otro objeto tipo profesor
             System.out.printf("%s - %s\n", profesores[i].obtenerNombre(),
                     profesores[i].obtenerTipo());
         }
-        
+        // System.out.println(p1); no se puede pq p1 solo esta dentro del for
         System.out.println("-----------------------------");
         
         // ArrayList
@@ -35,6 +36,7 @@ public class ManejoArrayList1 {
         profesores2.add(prof2);
         
         for (int i = 0; i < profesores2.size(); i++) {
+            Profesor p1 = profesores2.get (i);
             System.out.printf("%s - %s\n", profesores2.get(i).obtenerNombre(),
                     profesores2.get(i).obtenerTipo());
         }
