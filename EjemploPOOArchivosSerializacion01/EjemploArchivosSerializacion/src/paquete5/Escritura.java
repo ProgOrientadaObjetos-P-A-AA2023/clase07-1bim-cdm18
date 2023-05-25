@@ -72,7 +72,7 @@ public class Escritura {
     }
 
     public void establecerListaHospitales() {
-         Lectura l = new Lectura(obtenerNombreArchivo());
+        Lectura l = new Lectura(obtenerNombreArchivo());
         l.establecerListaHospitales();
         listaH = l.obtenerListaHospitales();
     }
