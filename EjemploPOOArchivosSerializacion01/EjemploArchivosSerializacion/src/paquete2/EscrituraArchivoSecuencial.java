@@ -63,7 +63,7 @@ public class EscrituraArchivoSecuencial {
     // en el atributo listaProfesores obtenemos los registros 
     // del archivo
     public void establecerListaProfesores() {
-        LecturaArchivoSecuencial l = 
+        LecturaArchivoSecuencial l = // rescatar lo que ya se tiene
                 new LecturaArchivoSecuencial(obtenerNombreArchivo());
         l.establecerProfesores();
         listaProfesores = l.obtenerProfesores();

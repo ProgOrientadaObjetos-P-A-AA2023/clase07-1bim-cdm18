@@ -17,6 +17,7 @@ public class EscrituraArchivoSecuencial {
     private String nombreArchivo;
     private ObjectOutputStream salida; // envía los datos a un archivo
     private Calificacion registro;
+    
     private ArrayList<Calificacion> lista;
 
     public EscrituraArchivoSecuencial(String nombreArc) {

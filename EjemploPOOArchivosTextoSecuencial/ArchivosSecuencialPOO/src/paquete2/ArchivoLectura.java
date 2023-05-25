@@ -44,7 +44,7 @@ public class ArchivoLectura {
 
     public void establecerRutaArchivo() {
         rutaArchivo = String.format("data/%s.txt",
-                obtenerNombreArchivo());;
+                obtenerNombreArchivo());
     }
 
     public String obtenerNombreArchivo() {

@@ -33,7 +33,7 @@ public class ArchivoEscritura {
 
     public void establecerRutaArchivo() {
         rutaArchivo = String.format("data/%s.txt",
-                obtenerNombreArchivo());;
+                obtenerNombreArchivo());
     }
 
     public void establecerRegistro(Profesor n) {
