@@ -31,29 +31,20 @@ public class Ejecutor {
         Hospital hosp5 = new Hospital("Santa Teresa", 50, 2000.5, ciudad5);
 
         ArrayList<Hospital> listaHospitales = new ArrayList();
-
-        listaHospitales.add(hosp1);
-        listaHospitales.add(hosp2);
-        listaHospitales.add(hosp3);
-        listaHospitales.add(hosp4);
-        listaHospitales.add(hosp5);
-
-        Escritura archivo
-                = new Escritura(listaHospitales, nombreArchivo);
-
-       
-        archivo.cerrarArchivo();
+        
+      
+        Hospital[] lista = {hosp1, hosp2,hosp3, hosp4, hosp5};
+        Escritura archivo = new Escritura(nombreArchivo);
         
         
-        
-        Lectura leer = new Lectura(nombreArchivo);
-        leer.establecerListaHospitales();
-        
-        for (int i = 0; i < listaHospitales.size(); i++) {
-            archivo.establecerRegistro(listaHospitales.get(i));
+         for (int i = 0; i < lista.length; i++) {
+            archivo.establecerRegistro(lista[i]);
+            archivo.establecerSalida();
         }
         
-        System.out.println(leer);
+        Lectura lectura = new Lectura(nombreArchivo);
+        lectura.establecerListaHospitales();
+        System.out.println(lectura);
 
     }
 }

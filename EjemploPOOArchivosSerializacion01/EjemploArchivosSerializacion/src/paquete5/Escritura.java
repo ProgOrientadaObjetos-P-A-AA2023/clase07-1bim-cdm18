@@ -14,14 +14,15 @@ import java.util.ArrayList;
  * @author SALA I
  */
 public class Escritura {
-
-    private Hospital [] listaHospitales;
     private String nombreArchivo;
-    private ObjectOutputStream salida;
-    private Hospital registroHospital;
+    private ObjectOutputStream salida; // envía los datos a un archivo
+    private Hospital registro;
+    private ArrayList<Hospital> listaH;
+    
+   
 
-    public Escritura(Hospital [] h, String nombreAr) {
-        listaHospitales = h;
+    public Escritura(String nombreAr) {
+        // listaHospitales = h;
         nombreArchivo = nombreAr;
 
         establecerListaHospitales();
@@ -33,7 +34,7 @@ public class Escritura {
             // proceso para ingresar nuevamente los valores del archivo
             if (obtenerListaHospitales().size() > 0) {
                 for (int i = 0; i < obtenerListaHospitales().size(); i++) {
-                    listaHospitales.get(i);
+                    establecerRegistro(obtenerListaHospitales().get(i));
                     establecerSalida();
                 }
             }
@@ -44,8 +45,8 @@ public class Escritura {
 
     }
     
-     public void establecerRegistro(Hospital j) {
-        registroHospital = j;
+     public void establecerRegistro(Hospital ho) {
+        registro = ho;
     }
     
     public void cerrarArchivo() {
@@ -57,24 +58,23 @@ public class Escritura {
         } // fin de try
         catch (IOException ioException) {
             System.err.println("Error al cerrar el archivo.");
-
+            
         } // fin de catch
-    }
+    } 
 
     public void establecerSalida() {
-        try {
-            salida.writeObject(listaHospitales); // envía el registro como 
-            // objeto al archivo
-        } catch (IOException ex) {
+         try {
+            salida.writeObject(registro); // envía el registro como salida
+        
+         } catch (IOException ex) {
             System.err.println("Error al escribir en el archivo.");
         }
     }
 
     public void establecerListaHospitales() {
-        Lectura l
-                = new Lectura(obtenerNombreArchivo());
+         Lectura l = new Lectura(obtenerNombreArchivo());
         l.establecerListaHospitales();
-        listaHospitales = l.obtenerListaHospitales();
+        listaH = l.obtenerListaHospitales();
     }
 
     public void establecerNombreArchivo(String n) {
@@ -82,11 +82,17 @@ public class Escritura {
     }
 
     public ArrayList<Hospital> obtenerListaHospitales() {
-        return listaHospitales;
+        return listaH;
     }
 
     public String obtenerNombreArchivo() {
         return nombreArchivo;
     }
+    
+     public ObjectOutputStream obtenerSalida(){
+        return salida;
+    }
+     
+     
 
 }

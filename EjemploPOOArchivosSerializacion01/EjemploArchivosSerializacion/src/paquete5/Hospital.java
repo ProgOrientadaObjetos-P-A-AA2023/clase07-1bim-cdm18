@@ -14,11 +14,10 @@ import java.util.ArrayList;
  */
 public class Hospital implements Serializable {
 
-    String nombre;
-    int numeroCamas;
-    double presupuesto;
-    Ciudad ciudad; // 2 caracteristicas
-    private ArrayList<Hospital> Hospital;
+    private String nombre;
+    private int numeroCamas;
+    private double presupuesto;
+    private Ciudad ciudad; // 2 caracteristicas
 
     public Hospital(String n, int nC, double pres, Ciudad ciu) {
         nombre = n;
@@ -33,10 +32,6 @@ public class Hospital implements Serializable {
 
     public void establecerNumeroCamas(int nC) {
         numeroCamas = nC;
-    }
-
-    public void establecerHospital(ArrayList<Hospital> h) {
-        Hospital = h;
     }
 
     public void establecerPresupuesto(double pres) {
@@ -61,10 +56,6 @@ public class Hospital implements Serializable {
 
     public Ciudad obtenerCiudad() {
         return ciudad;
-    }
-
-    public ArrayList<Hospital> obtenerHospital() {
-        return Hospital;
     }
 
     /*

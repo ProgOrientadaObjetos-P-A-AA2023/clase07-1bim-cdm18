@@ -18,14 +18,12 @@ import java.io.ObjectInputStream;
 public class Lectura {
 
     private ObjectInputStream entrada;
-    private ArrayList<Hospital> listaHospitales;
     private String nombreArchivo;
-    private String identificador;
-    
+    private ArrayList<Hospital> listaH;
+
     public Lectura(String n) {
         nombreArchivo = n;
         File f = new File(obtenerNombreArchivo());
-
         if (f.exists()) {
             try // abre el archivo
             {
@@ -33,59 +31,36 @@ public class Lectura {
                         new FileInputStream(n));
             } // fin de try
             catch (IOException ioException) {
-                System.err.println("Error al abrir el archivo." + ioException);
+                System.err.println("Error al abrir el archivo.");
+
             } // fin de catch
         }
-
     }
 
     public void establecerListaHospitales() {
-        listaHospitales = new ArrayList<>();
+        listaH = new ArrayList<>();
         File f = new File(obtenerNombreArchivo());
         if (f.exists()) {
 
             while (true) {
                 try {
                     Hospital registro = (Hospital) entrada.readObject();
-                    listaHospitales.add(registro);
+                    listaH.add(registro);
                 } catch (EOFException endOfFileException) {
                     return; // se llegó al fin del archivo
-                    // se puede usar el break;
-                    // System.err.println("Fin de archivo: " + endOfFileException);
 
                 } catch (IOException ex) {
                     System.err.println("Error al leer el archivo: " + ex);
                 } catch (ClassNotFoundException ex) {
                     System.err.println("No se pudo crear el objeto: " + ex);
                 } catch (Exception ex) {
-                    System.err.println("No hay datos en el archivo: " + ex);
-
+                    // System.err.println("No hay datos en el archivo: " + ex);
+                    break;
                 }
             }
         }
 
     }
-
-    public void establecerNombreArchivo(String nA) {
-        nombreArchivo = nA;
-    }
-
-    public void establecerIdentificador(String i) {
-        identificador = i;
-    }
-
-    public ArrayList<Hospital> obtenerListaHospitales() {
-        return listaHospitales;
-    }
-
-    public String obtenerNombreArchivo() {
-        return nombreArchivo;
-    }
-
-    public String obtenerIdentificador() {
-        return identificador;
-    }
-
     public void cerrarArchivo() {
         try // cierra el archivo y sale
         {
@@ -99,7 +74,21 @@ public class Lectura {
             System.exit(1);
         } // fin de catch
     } // fin del método cerrarArchivo
+    
 
+    public void establecerNombreArchivo(String nA) {
+        nombreArchivo = nA;
+    }
+
+    public ArrayList<Hospital> obtenerListaHospitales() {
+        return listaH;
+    }
+
+    public String obtenerNombreArchivo() {
+        return nombreArchivo;
+    }
+
+   
     @Override
     public String toString() {
 
