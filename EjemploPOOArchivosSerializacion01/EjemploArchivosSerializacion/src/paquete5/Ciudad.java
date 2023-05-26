@@ -4,11 +4,13 @@
  */
 package paquete5;
 
+import java.io.Serializable;
+
 /**
  *
  * @author SALA I
  */
-public class Ciudad {
+public class Ciudad implements Serializable {
     private String provincia;
     private String nombre;
 

@@ -97,7 +97,7 @@ public class Lectura {
         for (int i = 0; i < obtenerListaHospitales().size(); i++) {
 
             Hospital h = obtenerListaHospitales().get(i);
-            cadena = String.format("%s;%d;%s;%d;%.2f;%s;%s\n", cadena,
+            cadena = String.format("%s%d - %s - %d - %.2f - %s - %s\n", cadena,
                     i + 1,
                     h.obtenerNombre(),
                     h.obtenerNumeroCamas(),

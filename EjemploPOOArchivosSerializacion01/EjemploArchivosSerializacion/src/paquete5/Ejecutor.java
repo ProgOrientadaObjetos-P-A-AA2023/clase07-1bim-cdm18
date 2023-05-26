@@ -4,17 +4,17 @@
  */
 package paquete5;
 
-import paquete4.EscrituraArchivoSecuencial;
-import java.util.ArrayList;
+
 
 /**
  *
- * @author SALA I
+ * @author Carlos Mejia y Veronica Luna
  */
 public class Ejecutor {
 
     public static void main(String[] args) {
         String nombreArchivo = "data/hospital.data";
+        
         Ciudad ciudad1 = new Ciudad("Pichincha", "Quito");
         Hospital hosp1 = new Hospital("San Juan", 500, 400.5, ciudad1);
 
@@ -30,17 +30,14 @@ public class Ejecutor {
         Ciudad ciudad5 = new Ciudad("Azuay", "Cuenca");
         Hospital hosp5 = new Hospital("Santa Teresa", 50, 2000.5, ciudad5);
 
-        hosp1.establecerCiudad(ciudad1);
-        hosp2.establecerCiudad(ciudad2);
-        hosp3.establecerCiudad(ciudad3);
-        hosp4.establecerCiudad(ciudad4);
-        hosp5.establecerCiudad(ciudad5);
+       
 
-        Hospital[] lista = {hosp1, hosp2, hosp3, hosp4, hosp5};
+        Hospital[] listah = {hosp1, hosp2, hosp3, hosp4, hosp5};
         Escritura archivo = new Escritura(nombreArchivo);
 
-        for (int i = 0; i < lista.length; i++) {
-            archivo.establecerRegistro(lista[i]);
+        for (int i = 0; i < listah.length; i++) {
+            archivo.establecerRegistro(listah[i]);
+            
             archivo.establecerSalida();
         }
         archivo.cerrarArchivo();
